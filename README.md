@@ -1,205 +1,184 @@
-🔐 OTP-SNIPER v1.1 — JATHNIEL EDITION
+Je vais te reformater ce README avec une structure GitHub propre, hiérarchisée et bien organisée. Voici la version optimisée :
 
-📌 Description
+---
 
-OTP-SNIPER est un outil Python destiné à l’analyse et au test de mécanismes d’authentification OTP / 2FA dans un environnement de laboratoire contrôlé.
+```markdown
+# 🔐 OTP-SNIPER v1.1 — JATHNIEL EDITION
 
-Il fournit une interface en terminal (TUI) ainsi qu’une interface Web permettant de centraliser les événements observés pendant les tests.
+## 📌 Description
 
-Fonctionnalités
+OTP-SNIPER est un outil Python destiné à l'analyse et au test de mécanismes d'authentification OTP / 2FA dans un environnement de laboratoire contrôlé.
 
-* 🖥️ Interface TUI
-* 🌐 Interface Web
-* 🔐 Gestion d’un environnement HTTPS de test
-* 🔢 Détection d’OTP de laboratoire
-* 🍪 Analyse des sessions de test
-* 🔑 Analyse des identifiants de test
-* 🔄 Tests de rejeu sur des environnements autorisés
-* ⚡ Tests automatisés de fenêtres de validité
-* 📊 Statistiques
-* 📜 Logs
-* 💾 Export JSON
-* 🗄️ Base de données SQLite
-* 🌍 Utilisation depuis plusieurs machines d’un même réseau de laboratoire
+Il fournit une interface en terminal (TUI) ainsi qu'une interface Web permettant de centraliser les événements observés pendant les tests.
 
-Utilisation prévue : laboratoire personnel, CTF, environnement de développement ou test de sécurité explicitement autorisé.
+### ✨ Fonctionnalités
 
-⸻
+| Fonctionnalité | Description |
+|----------------|-------------|
+| 🖥️ | Interface TUI |
+| 🌐 | Interface Web |
+| 🔐 | Gestion d'un environnement HTTPS de test |
+| 🔢 | Détection d'OTP de laboratoire |
+| 🍪 | Analyse des sessions de test |
+| 🔑 | Analyse des identifiants de test |
+| 🔄 | Tests de rejeu sur des environnements autorisés |
+| ⚡ | Tests automatisés de fenêtres de validité |
+| 📊 | Statistiques |
+| 📜 | Logs |
+| 💾 | Export JSON |
+| 🗄️ | Base de données SQLite |
+| 🌍 | Utilisation depuis plusieurs machines d'un même réseau de laboratoire |
 
-📋 1. Prérequis
+**Utilisation prévue :** laboratoire personnel, CTF, environnement de développement ou test de sécurité explicitement autorisé.
 
-Systèmes supportés
+---
 
-OTP-SNIPER peut être exécuté sur :
+## 📋 Table des matières
 
-* Linux
-* Windows
-* macOS
+- [Prérequis](#-prérequis)
+- [Installation](#-installation)
+  - [Linux / macOS](#linux--macos)
+  - [Windows](#windows)
+- [Configuration](#-configuration)
+  - [Réseau](#configuration-réseau)
+  - [HTTPS](#configuration-https)
+  - [Clients](#configuration-des-clients)
+- [Utilisation](#-utilisation)
+- [Dépannage](#-dépannage)
+- [Avertissement](#-avertissement)
 
-Les clients de laboratoire peuvent être :
+---
 
-* Firefox
-* Chrome / Chromium
-* curl
-* Python Requests
-* Postman
-* Android
-* iOS
+## 📋 1. Prérequis
 
-Logiciels nécessaires
+### Systèmes supportés
 
-Linux
+| Système | Statut |
+|---------|--------|
+| Linux | ✅ |
+| Windows | ✅ |
+| macOS | ✅ |
 
-Installer Python et les outils nécessaires :
+### Clients de laboratoire supportés
 
+- Firefox
+- Chrome / Chromium
+- curl
+- Python Requests
+- Postman
+- Android
+- iOS
+
+### Logiciels nécessaires
+
+**Linux**
+```bash
 python3 --version
 pip3 --version
+```
 
-Si Python n’est pas installé, utilisez le gestionnaire de paquets de votre distribution.
-
-Windows
-
-Vérifier :
-
+**Windows**
+```powershell
 python --version
 pip --version
+```
 
-macOS
-
-Vérifier :
-
+**macOS**
+```bash
 python3 --version
 pip3 --version
+```
 
-⸻
+---
 
-📁 2. Installation
+## 📁 2. Installation
 
-Linux / macOS
+### Linux / macOS
 
-Créer le dossier du projet :
-
+```bash
+# Créer le dossier du projet
 mkdir OTP-Sniper
 cd OTP-Sniper
 
-Copier les fichiers du projet :
+# Structure des fichiers
+# OTP-Sniper/
+# ├── otp_sniper.py
+# ├── requirements.txt
+# └── README.md
 
-OTP-Sniper/
-├── otp_sniper.py
-├── requirements.txt
-└── README.md
-
-Créer l’environnement virtuel :
-
+# Créer l'environnement virtuel
 python3 -m venv venv
 
-Activer l’environnement :
-
+# Activer l'environnement
 source venv/bin/activate
 
-Installer les dépendances :
-
+# Installer les dépendances
 pip install -r requirements.txt
 
-Lancer :
-
+# Lancer
 python3 otp_sniper.py
+```
 
-⸻
+### Windows
 
-🪟 3. Installation Windows
-
-Ouvrir PowerShell.
-
-Créer le dossier :
-
+```powershell
+# Ouvrir PowerShell
 mkdir OTP-Sniper
 cd OTP-Sniper
 
-Placer ensuite :
+# Placer les fichiers : otp_sniper.py, requirements.txt, README.md
 
-otp_sniper.py
-requirements.txt
-README.md
-
-Créer le venv :
-
+# Créer le venv
 python -m venv venv
 
-Activer :
-
+# Activer
 venv\Scripts\activate
 
-Installer les dépendances :
-
+# Installer
 pip install -r requirements.txt
 
-Lancer :
-
+# Lancer
 python otp_sniper.py
+```
 
-Si PowerShell bloque l’activation
+> **Note :** Si PowerShell bloque l'activation, utilisez directement :
+> ```powershell
+> venv\Scripts\python.exe otp_sniper.py
+> venv\Scripts\pip.exe install -r requirements.txt
+> ```
 
-Selon la politique d’exécution configurée sur Windows, l’activation peut être bloquée.
+### macOS (résumé)
 
-Vous pouvez utiliser directement :
-
-venv\Scripts\python.exe otp_sniper.py
-
-et :
-
-venv\Scripts\pip.exe install -r requirements.txt
-
-⸻
-
-🍎 4. Installation macOS
-
-Créer le projet :
-
-mkdir OTP-Sniper
-cd OTP-Sniper
-
-Créer le venv :
-
-python3 -m venv venv
-
-Activer :
-
-source venv/bin/activate
-
-Installer :
-
-pip install -r requirements.txt
-
-Lancer :
-
-python3 otp_sniper.py
-
-⸻
-
-🐧 5. Installation Linux
-
-mkdir OTP-Sniper
-cd OTP-Sniper
+```bash
+mkdir OTP-Sniper && cd OTP-Sniper
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python3 otp_sniper.py
+```
 
-⸻
+### Linux (résumé)
 
-⚙️ 6. Configuration générale
+```bash
+mkdir OTP-Sniper && cd OTP-Sniper
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 otp_sniper.py
+```
 
-Avant de commencer les tests, définir clairement l’architecture du laboratoire.
+---
 
-Exemple :
+## ⚙️ 3. Configuration générale
 
+### Architecture du laboratoire
+
+```
                     RÉSEAU DE LABORATOIRE
                  ┌──────────────────────┐
                  │      Application     │
                  │      de test         │
                  └──────────┬───────────┘
-                            │
                             │
                  ┌──────────▼───────────┐
                  │     OTP-SNIPER       │
@@ -213,36 +192,20 @@ Exemple :
              ▼              ▼              ▼
          Firefox         Android        Postman
         PC de test      appareil       PC de test
+```
 
-Dans cet exemple :
+**Configuration :**
+- **Machine OTP-SNIPER :** IP `192.168.1.42`, Port `8080`
+- **Clients :** Proxy `192.168.1.42`, Port `8080`
+- **Même machine :** Proxy `127.0.0.1`, Port `8080`
 
-Machine OTP-SNIPER
-IP : 192.168.1.42
-Port : 8080
+---
 
-Les clients du laboratoire doivent utiliser :
+## 🌐 4. Configuration réseau
 
-Proxy : 192.168.1.42
-Port  : 8080
+### 4.1 Même machine
 
-Lorsque le client et OTP-SNIPER sont sur la même machine :
-
-Proxy : 127.0.0.1
-Port  : 8080
-
-⸻
-
-🌐 7. Configuration réseau
-
-7.1 Même machine
-
-Si le navigateur et OTP-SNIPER fonctionnent sur le même ordinateur :
-
-Adresse : 127.0.0.1
-Port    : 8080
-
-Architecture :
-
+```
 Firefox
    │
    ▼
@@ -250,34 +213,18 @@ Firefox
    │
    ▼
 OTP-SNIPER
+```
 
-⸻
+### 4.2 Deux machines
 
-7.2 Deux machines
+```
+Machine OTP-SNIPER          Machine cliente
+   192.168.1.42          ──▶    192.168.1.50
+```
 
-Si OTP-SNIPER fonctionne sur une machine différente du client :
+### 4.3 Plusieurs machines
 
-Machine OTP-SNIPER
-192.168.1.42
-       │
-       │ réseau local
-       ▼
-Machine cliente
-192.168.1.50
-
-Le client utilise :
-
-Serveur proxy : 192.168.1.42
-Port          : 8080
-
-Vérifiez que les deux machines peuvent communiquer sur le réseau de laboratoire.
-
-⸻
-
-7.3 Plusieurs machines
-
-Exemple :
-
+```
                     ┌────────────────────┐
                     │    OTP-SNIPER      │
                     │   192.168.1.42     │
@@ -289,597 +236,336 @@ Exemple :
               ▼               ▼                ▼
         192.168.1.50    192.168.1.51     192.168.1.52
           Firefox          Android          Postman
+```
 
-Chaque client autorisé du laboratoire doit être configuré pour utiliser :
+---
 
-192.168.1.42:8080
+## 🔥 5. Pare-feu
 
-⸻
+Vérifier l'écoute du port :
 
-🔥 8. Pare-feu
-
-Si OTP-SNIPER est exécuté sur une machine distante, le port utilisé doit être accessible depuis les machines du laboratoire.
-
-Vérifiez d’abord l’écoute du port.
-
-Linux :
-
+**Linux :**
+```bash
 ss -lntp
-
-ou :
-
+# ou
 sudo lsof -i :8080
+```
 
-Windows :
-
+**Windows :**
+```powershell
 netstat -ano | findstr :8080
+```
 
-Si un pare-feu bloque le trafic, autorisez uniquement le réseau de laboratoire et le port nécessaire.
+> ⚠️ Évitez d'exposer le port du proxy directement sur Internet.
 
-Évitez d’exposer le port du proxy directement sur Internet.
+---
 
-⸻
+## 🖥️ 6. Démarrage
 
-🖥️ 9. Démarrage d’OTP-SNIPER
-
-Lancer :
-
+```bash
 python3 otp_sniper.py
+```
 
-Sous Windows :
+**Menu de démarrage :**
+| Option | Description |
+|--------|-------------|
+| [1] | 🖥️ TUI (Terminal riche) |
+| [2] | 🌐 Web (Navigateur) |
+| [3] | 🔄 Les deux |
+| [0] | ❌ Quitter |
 
-python otp_sniper.py
+---
 
-Le programme propose :
+## 🖥️ 7. Interface TUI
 
-[1] 🖥️  TUI (Terminal riche)
-[2] 🌐 Web (Navigateur)
-[3] 🔄 Les deux
-[0] ❌ Quitter
+| Option | Fonction |
+|--------|----------|
+| [1] | 🚀 Démarrer le proxy |
+| [2] | ⏸️ Arrêter le proxy |
+| [3] | 🔴 Voir les codes 2FA |
+| [4] | 🍪 Voir les sessions / cookies |
+| [5] | 🔑 Voir les credentials |
+| [6] | 🔄 Replay manuel |
+| [7] | ⚡ Replay automatique |
+| [8] | 📊 Statistiques |
+| [9] | 📜 Logs |
+| [10] | 💾 Export JSON |
+| [11] | 🌐 Interface Web |
+| [12] | 📜 Chemin du CA |
+| [13] | 🧪 Aide configuration client |
+| [0] | ❌ Quitter |
 
-⸻
+---
 
-🖥️ 10. Interface TUI
+## 🌐 8. Interface Web
 
-Le menu principal est :
+Choisir `[2] 🌐 Web` ou `[3] 🔄 Les deux`
 
-[1]  🚀  Démarrer le proxy
-[2]  ⏸️   Arrêter le proxy
-[3]  🔴  Voir les codes 2FA
-[4]  🍪  Voir les sessions / cookies
-[5]  🔑  Voir les credentials
-[6]  🔄  Replay manuel
-[7]  ⚡  Replay automatique
-[8]  📊  Statistiques
-[9]  📜  Logs
-[10] 💾  Export JSON
-[11] 🌐  Interface Web
-[12] 📜  Chemin du CA
-[13] 🧪  Aide configuration client
-[0]  ❌  Quitter
-
-⸻
-
-🌐 11. Configuration de l’interface Web
-
-Choisir :
-
-[2] 🌐 Web
-
-ou :
-
-[3] 🔄 Les deux
-
-L’interface Web permet de consulter les informations disponibles depuis un navigateur de laboratoire.
-
-Lorsque l’interface indique une adresse d’écoute, utilisez cette adresse depuis une machine autorisée du même réseau.
-
-Exemple :
-
+Accès depuis une machine autorisée :
+```
 http://192.168.1.42:PORT
+```
 
-Le port exact dépend de la configuration de l’application.
+---
 
-⸻
-
-🔐 12. Configuration HTTPS
+## 🔐 9. Configuration HTTPS
 
 OTP-SNIPER utilise une autorité de certification de laboratoire.
 
-Au premier démarrage concerné, les fichiers sont générés dans :
+### Structure générée
 
+```
 otp_sniper_ca/
+├── ca.key          # Clé privée du CA (⚠️ NE JAMAIS PARTAGER)
+├── ca.crt          # Certificat public du CA
+├── example.com.crt # Certificat de test
+└── example.com.key # Clé du certificat de test
+```
 
-Structure :
+> ⚠️ **Important :** Ne partagez jamais `ca.key` et ne committez jamais `otp_sniper_ca/` dans un dépôt public.
 
-otp_sniper_ca/
-├── ca.key
-├── ca.crt
-├── example.com.crt
-└── example.com.key
+### Trouver le certificat CA
 
-Signification
+**Depuis la TUI :** `[12] 📜 Chemin du CA`
 
-Fichier	Fonction
-ca.key	Clé privée du CA
-ca.crt	Certificat public du CA
-<domaine>.crt	Certificat de test
-<domaine>.key	Clé du certificat de test
-
-⚠️ Important
-
-Ne partagez jamais :
-
-ca.key
-
-Ne committez jamais :
-
-otp_sniper_ca/
-
-dans un dépôt public.
-
-⸻
-
-📜 13. Trouver le certificat CA
-
-Depuis la TUI :
-
-[12] 📜 Chemin du CA
-
-Ou :
-
+**Manuellement :**
+```bash
 ls otp_sniper_ca/ca.crt
+```
 
-Sous Windows :
+---
 
-Get-ChildItem otp_sniper_ca
+## 🔧 10. Configuration des clients
 
-Le fichier à installer sur les clients de laboratoire est :
+### 🦊 Firefox
 
-ca.crt
+**Proxy :**
+```
+Paramètres → Général → Paramètres réseau → Configuration manuelle
+```
 
-⸻
+| Configuration | Valeur |
+|---------------|--------|
+| Même machine | `127.0.0.1:8080` |
+| Machine distante | `192.168.1.42:8080` |
 
-🦊 14. Configuration Firefox
+**Certificat :**
+```
+Paramètres → Vie privée et sécurité → Certificats → Afficher → Autorités → Importer
+```
+Sélectionner : `ca.crt`
 
-Proxy
+### 🌐 Chrome / Chromium
 
-Dans Firefox :
-
-Paramètres
-→ Général
-→ Paramètres réseau
-→ Paramètres
-→ Configuration manuelle du proxy
-
-Même machine :
-
-HTTP Proxy : 127.0.0.1
-Port       : 8080
-
-Machine distante :
-
-HTTP Proxy : 192.168.1.42
-Port       : 8080
-
-Selon l’architecture, activez l’utilisation du proxy pour les protocoles nécessaires.
-
-Certificat
-
-Dans Firefox :
-
-Paramètres
-→ Vie privée et sécurité
-→ Certificats
-→ Afficher les certificats
-→ Autorités
-→ Importer
-
-Sélectionner :
-
-ca.crt
-
-Ajoutez la confiance uniquement dans le profil Firefox utilisé pour le laboratoire.
-
-⸻
-
-🌐 15. Configuration Chrome / Chromium
-
-Pour un environnement local de test :
-
+```bash
+# Local
 google-chrome --proxy-server="http://127.0.0.1:8080"
 
-Avec une machine OTP-SNIPER distante :
-
+# Distant
 google-chrome --proxy-server="http://192.168.1.42:8080"
+```
 
-Le certificat de laboratoire doit également être reconnu par l’environnement de test.
+### 🪟 Windows (Certificat)
 
-⸻
+1. Double-cliquer sur `ca.crt`
+2. Installer le certificat → Ordinateur local
+3. Placer dans : **Autorités de certification racines de confiance**
 
-🪟 16. Configuration du certificat sous Windows
+### 🐧 Linux (Certificat)
 
-Copier :
-
-ca.crt
-
-sur Windows.
-
-Double-cliquer :
-
-ca.crt
-
-Puis :
-
-Installer le certificat
-→ Ordinateur local
-→ Placer tous les certificats dans le magasin suivant
-→ Autorités de certification racines de confiance
-→ Terminer
-
-Cette configuration doit être réalisée uniquement sur les machines de laboratoire.
-
-⸻
-
-🐧 17. Configuration du certificat sous Linux
-
-Copier le certificat dans le magasin de certificats du système :
-
-sudo cp otp_sniper_ca/ca.crt \
-/usr/local/share/ca-certificates/otp-sniper.crt
-
-Puis :
-
+```bash
+sudo cp otp_sniper_ca/ca.crt /usr/local/share/ca-certificates/otp-sniper.crt
 sudo update-ca-certificates
+```
 
-Vérifier :
+### 🍎 macOS (Certificat)
 
-ls /etc/ssl/certs/
+Importer `ca.crt` dans **Trousseaux d'accès** et configurer comme autorité de confiance.
 
-⸻
+### 📱 Android
 
-🍎 18. Configuration du certificat sous macOS
+```
+Paramètres → Wi-Fi → Réseau connecté → Modifier → Options avancées → Proxy → Manuel
+```
 
-Ouvrir :
+| Champ | Valeur |
+|-------|--------|
+| Hôte | `192.168.1.42` |
+| Port | `8080` |
 
-Trousseaux d'accès
+### 🍎 iOS
 
-Importer :
+1. Transférer `ca.crt`
+2. Ouvrir et installer le profil
+3. Activer la confiance dans : `Réglages → Général → Informations → Réglages de confiance`
 
-ca.crt
+### 🔧 curl
 
-dans le trousseau approprié pour le laboratoire.
-
-Le certificat peut ensuite être configuré comme autorité de confiance pour cet environnement de test.
-
-⸻
-
-📱 19. Configuration Android
-
-Sur un appareil de laboratoire :
-
-Paramètres
-→ Wi-Fi
-→ Réseau connecté
-→ Modifier
-→ Options avancées
-→ Proxy
-→ Manuel
-
-Si OTP-SNIPER se trouve sur :
-
-192.168.1.42
-
-utiliser :
-
-Hôte : 192.168.1.42
-Port : 8080
-
-Le certificat ca.crt peut ensuite être installé via les paramètres de sécurité de l’appareil, selon la version d’Android.
-
-Certaines applications Android modernes ne font volontairement pas confiance aux certificats utilisateurs. Cela peut nécessiter une configuration spécifique de l’application de laboratoire.
-
-⸻
-
-🍎 20. Configuration iOS
-
-Sur un appareil de laboratoire :
-
-1. Transférer ca.crt.
-2. Ouvrir le fichier.
-3. Installer le profil.
-4. Aller dans :
-
-Réglages
-→ Général
-→ VPN et gestion de l'appareil
-
-Puis activer explicitement la confiance du certificat si nécessaire :
-
-Réglages
-→ Général
-→ Informations
-→ Réglages de confiance des certificats
-
-⸻
-
-🔧 21. Configuration curl
-
-Pour un client situé sur la même machine :
-
+```bash
+# Même machine
 curl -x http://127.0.0.1:8080 http://lab.local/api
 
-Pour un OTP-SNIPER distant :
-
+# Distant
 curl -x http://192.168.1.42:8080 http://lab.local/api
+```
 
-Pour HTTPS, utilisez le certificat de confiance du laboratoire plutôt que de désactiver la vérification TLS lorsque cela est possible.
+### 🐍 Python Requests
 
-⸻
-
-🐍 22. Configuration Python Requests
-
-Exemple pour une application de laboratoire :
-
+```python
 import requests
+
 proxies = {
     "http": "http://192.168.1.42:8080",
     "https": "http://192.168.1.42:8080",
 }
-response = requests.get(
-    "https://lab.local/api",
-    proxies=proxies
-)
+
+response = requests.get("https://lab.local/api", proxies=proxies)
 print(response.status_code)
+```
 
-Pour un test local :
+### 📮 Postman
 
-proxies = {
-    "http": "http://127.0.0.1:8080",
-    "https": "http://127.0.0.1:8080",
-}
+```
+Settings → Proxy
+```
+| Paramètre | Valeur |
+|-----------|--------|
+| Proxy type | HTTP |
+| Host | `192.168.1.42` (ou `127.0.0.1`) |
+| Port | `8080` |
 
-⸻
+---
 
-📮 23. Configuration Postman
+## 🧪 11. Tests OTP / 2FA
 
-Dans :
+Le laboratoire permet d'étudier :
+- Durée de validité d'un OTP
+- Comportement après expiration
+- Comportement après réutilisation
+- Limitation du nombre de tentatives
+- Réponses HTTP
+- Journaux de l'application
+- Mécanismes de protection
 
-Settings
-→ Proxy
+> Utilisez exclusivement des **comptes de test**, **codes de test**, **applications de test** et **données synthétiques**.
 
-Configurer le proxy correspondant à la machine OTP-SNIPER :
+---
 
-Proxy type : HTTP
-Host       : 192.168.1.42
-Port       : 8080
+## ⚡ 12. Replay automatique
 
-Si Postman et OTP-SNIPER sont sur la même machine :
+Séquence de test type :
 
-Host : 127.0.0.1
-Port : 8080
-
-Pour HTTPS, privilégiez l’installation correcte du certificat de laboratoire plutôt que la désactivation permanente de la vérification TLS.
-
-⸻
-
-🧪 24. Configuration d’un laboratoire multi-machines
-
-Une architecture recommandée :
-
-                  ┌─────────────────────────┐
-                  │     ROUTEUR / SWITCH    │
-                  │      LABORATOIRE        │
-                  └────────────┬────────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              │                │                │
-              ▼                ▼                ▼
-       ┌────────────┐   ┌────────────┐   ┌────────────┐
-       │ OTP-SNIPER │   │ Client PC  │   │  Android   │
-       │            │   │            │   │            │
-       │192.168.1.42│   │192.168.1.50│   │192.168.1.51│
-       │    :8080   │   │            │   │            │
-       └────────────┘   └────────────┘   └────────────┘
-
-Configuration :
-
-OTP-SNIPER
-IP      : 192.168.1.42
-Proxy   : 8080
-
-Client PC :
-
-Proxy   : 192.168.1.42
-Port    : 8080
-
-Android :
-
-Proxy   : 192.168.1.42
-Port    : 8080
-
-⸻
-
-🔄 25. Tests OTP / 2FA
-
-Le laboratoire peut être utilisé pour étudier :
-
-* durée de validité d’un OTP ;
-* comportement après expiration ;
-* comportement après une seconde utilisation ;
-* limitation du nombre de tentatives ;
-* réponses HTTP ;
-* journaux de l’application ;
-* mécanismes de protection contre les tentatives répétées.
-
-Utilisez exclusivement des :
-
-comptes de test
-codes de test
-applications de test
-données synthétiques
-
-⸻
-
-⚡ 26. Replay automatique
-
-Le module de rejeu permet d’étudier la fenêtre de validité d’un OTP dans un environnement de test.
-
-Exemple de séquence :
-
-Tentative    Délai
-1            +1s
-2            +5s
-3            +30s
-4            +60s
-5            +5min
+| Tentative | Délai |
+|-----------|-------|
+| 1 | +1s |
+| 2 | +5s |
+| 3 | +30s |
+| 4 | +60s |
+| 5 | +5min |
 
 Exemple de résultat :
-
+```
 +1s      → accepted
 +6s      → accepted
 +36s     → rejected
 +1m36s   → rejected
 +6m36s   → rejected
+```
 
-L’objectif est d’observer le comportement du système de test, et non d’utiliser des codes appartenant à des utilisateurs réels.
+---
 
-⸻
+## 📊 13. Statistiques & Logs
 
-📊 27. Statistiques
+| Menu | Fonction |
+|------|----------|
+| `[8] 📊 Statistiques` | Vue synthétique des événements |
+| `[9] 📜 Logs` | Diagnostic des problèmes |
 
-Le menu :
+**Checklist dépannage :**
+1. ✅ Vérifier l'adresse IP
+2. ✅ Vérifier le port
+3. ✅ Vérifier la connexion réseau
+4. ✅ Vérifier le proxy du client
+5. ✅ Vérifier le certificat
+6. ✅ Consulter les logs
 
-[8] 📊 Statistiques
+---
 
-permet d’obtenir une vue synthétique des événements enregistrés par l’application.
+## 💾 14. Export & Base de données
 
-⸻
+### Export JSON
 
-📜 28. Logs
+Menu : `[10] 💾 Export JSON`
 
-Le menu :
+> ⚠️ Ne publiez pas ces fichiers sur GitHub (données sensibles de test).
 
-[9] 📜 Logs
+### Base SQLite
 
-permet de diagnostiquer les problèmes de configuration.
+Fichier : `otp_sniper.db`
 
-En cas de problème :
+**Structure logique :**
+- `requests`
+- `otp_codes`
+- `credentials`
+- `sessions`
 
-1. Vérifier l’adresse IP.
-2. Vérifier le port.
-3. Vérifier la connexion réseau.
-4. Vérifier le proxy du client.
-5. Vérifier le certificat.
-6. Consulter les logs.
-
-⸻
-
-💾 29. Export JSON
-
-Le menu :
-
-[10] 💾 Export JSON
-
-permet d’exporter les résultats du laboratoire.
-
-Les fichiers peuvent être générés sous la forme :
-
-otp_sniper_export_*.json
-
-Ces fichiers peuvent contenir des données sensibles de test.
-
-Ne les publiez pas sur GitHub.
-
-⸻
-
-🗄️ 30. Base SQLite
-
-La base est créée automatiquement :
-
-otp_sniper.db
-
-Structure logique :
-
-requests
-otp_codes
-credentials
-sessions
-
-Pour l’ouvrir :
-
+**Accès :**
+```bash
 sqlite3 otp_sniper.db
 
-Exemple :
-
-SELECT *
-FROM otp_codes
-ORDER BY id DESC
-LIMIT 10;
-
-Quitter SQLite :
+# Exemple de requête
+SELECT * FROM otp_codes ORDER BY id DESC LIMIT 10;
 
 .quit
+```
 
-⸻
+---
 
-📁 31. Structure finale
+## 📁 15. Structure finale
 
-Après exécution :
-
+```
 OTP-Sniper/
-│
 ├── otp_sniper.py
 ├── requirements.txt
 ├── README.md
-│
 ├── venv/
-│
 ├── otp_sniper.db
-│
 ├── otp_sniper_ca/
 │   ├── ca.key
 │   ├── ca.crt
 │   └── ...
-│
 └── otp_sniper_export_*.json
+```
 
-⸻
+---
 
-🧹 32. Réinitialisation
+## 🧹 16. Réinitialisation
 
-Supprimer la base
+### Supprimer la base
 
-Linux / macOS :
-
+```bash
+# Linux / macOS
 rm otp_sniper.db
 
-Windows :
-
+# Windows
 Remove-Item otp_sniper.db
+```
 
-⸻
+### Supprimer le CA
 
-Supprimer le CA
-
-Linux / macOS :
-
+```bash
+# Linux / macOS
 rm -rf otp_sniper_ca/
 
-Windows :
-
+# Windows
 Remove-Item -Recurse -Force otp_sniper_ca
+```
 
-⸻
+---
 
-🔒 33. .gitignore
+## 🔒 17. .gitignore
 
-Créer un fichier :
-
-.gitignore
-
-avec :
-
+```gitignore
 venv/
 .venv/
 __pycache__/
@@ -892,126 +578,121 @@ otp_sniper_export_*.json
 .env
 .vscode/
 .idea/
+```
 
-⸻
+---
 
-❓ 34. Dépannage
+## ❓ 18. Dépannage
 
-Le programme ne démarre pas
+### Le programme ne démarre pas
 
-Vérifier Python :
-
+```bash
 python3 --version
-
-Puis :
-
 pip install -r requirements.txt
+```
 
-⸻
+### Module `cryptography` manquant
 
-cryptography manque
-
+```bash
 pip install cryptography
-
-ou :
-
+# ou
 pip install -r requirements.txt
+```
 
-⸻
+### Port 8080 déjà utilisé
 
-Le port 8080 est déjà utilisé
-
-Linux :
-
+```bash
+# Linux
 sudo lsof -i :8080
 
-Windows :
-
+# Windows
 netstat -ano | findstr :8080
 
-Si l’application accepte un autre port :
-
+# Solution : utiliser un autre port
 python3 otp_sniper.py --port 8081
+```
 
-⸻
-
-Le client ne peut pas joindre OTP-SNIPER
-
-Vérifier :
-
-1. Adresse IP de la machine OTP-SNIPER
-2. Port utilisé
-3. Pare-feu
-4. Connexion réseau
-5. Configuration du proxy
-
-Architecture correcte :
-
-Client
-  │
-  │ 192.168.1.42:8080
-  ▼
-OTP-SNIPER
-
-⸻
-
-HTTPS affiche une erreur
+### Le client ne peut pas joindre OTP-SNIPER
 
 Vérifier :
+1. ✅ Adresse IP de la machine OTP-SNIPER
+2. ✅ Port utilisé
+3. ✅ Pare-feu
+4. ✅ Connexion réseau
+5. ✅ Configuration du proxy
 
-✓ ca.crt présent
-✓ certificat installé dans le client
-✓ bonne machine
-✓ bonne autorité de confiance
-✓ proxy correctement configuré
+### HTTPS affiche une erreur
 
-⸻
+Vérifier :
+- ✅ `ca.crt` présent
+- ✅ Certificat installé dans le client
+- ✅ Bonne machine
+- ✅ Bonne autorité de confiance
+- ✅ Proxy correctement configuré
 
-🧪 35. Checklist avant un test
+---
 
-[ ] Python installé
-[ ] venv créé
-[ ] requirements.txt installé
-[ ] OTP-SNIPER démarre
-[ ] Adresse IP du serveur connue
-[ ] Port disponible
-[ ] Pare-feu configuré pour le laboratoire
-[ ] Client connecté au même réseau
-[ ] Proxy configuré
-[ ] CA installé si nécessaire
-[ ] Application de test disponible
-[ ] Compte de test disponible
-[ ] OTP de test disponible
-[ ] Données réelles exclues du test
+## ✅ 19. Checklist avant un test
 
-⸻
+- [ ] Python installé
+- [ ] venv créé
+- [ ] requirements.txt installé
+- [ ] OTP-SNIPER démarre
+- [ ] Adresse IP du serveur connue
+- [ ] Port disponible
+- [ ] Pare-feu configuré pour le laboratoire
+- [ ] Client connecté au même réseau
+- [ ] Proxy configuré
+- [ ] CA installé si nécessaire
+- [ ] Application de test disponible
+- [ ] Compte de test disponible
+- [ ] OTP de test disponible
+- [ ] Données réelles exclues du test
 
-🛑 36. Fin du laboratoire
+---
+
+## 🛑 20. Fin du laboratoire
 
 Après les tests :
 
-1. Arrêter le proxy.
-2. Supprimer les données de test si elles ne sont plus nécessaires.
-3. Supprimer le certificat CA des appareils utilisés.
-4. Supprimer les exports contenant des données sensibles.
-5. Ne pas publier otp_sniper.db.
-6. Ne pas publier otp_sniper_ca/.
-7. Ne jamais publier ca.key.
+1. ⏹️ Arrêter le proxy
+2. 🗑️ Supprimer les données de test inutiles
+3. 🔐 Supprimer le certificat CA des appareils
+4. 🗑️ Supprimer les exports sensibles
+5. 🚫 Ne pas publier `otp_sniper.db`
+6. 🚫 Ne pas publier `otp_sniper_ca/`
+7. 🚫 Ne jamais publier `ca.key`
 
-⸻
+---
 
-⚠️ Avertissement
+## ⚠️ Avertissement
 
-OTP-SNIPER est destiné à la recherche en cybersécurité, aux environnements de laboratoire, aux CTF et aux tests explicitement autorisés.
+OTP-SNIPER est destiné à la **recherche en cybersécurité**, aux **environnements de laboratoire**, aux **CTF** et aux **tests explicitement autorisés**.
 
-L’utilisateur doit disposer de l’autorisation nécessaire avant de tester une application, un réseau, un appareil ou un compte.
+L'utilisateur doit disposer de l'autorisation nécessaire avant de tester une application, un réseau, un appareil ou un compte.
 
-N’utilisez pas cet outil pour intercepter, collecter ou rejouer des données appartenant à des tiers.
+**N'utilisez pas cet outil pour intercepter, collecter ou rejouer des données appartenant à des tiers.**
 
-⸻
+---
 
-👨‍💻 Auteur
+## 👨‍💻 Auteur
 
-JATHNIEL
+**JATHNIEL**
 
-OTP-SNIPER v1.1 — JATHNIEL EDITION
+*OTP-SNIPER v1.1 — JATHNIEL EDITION*
+```
+
+---
+
+Ce formatage GitHub inclut :
+
+1. **Hiérarchie claire** avec `#` pour le titre principal, `##` pour les sections, `###` pour les sous-sections
+2. **Table des matières** cliquable
+3. **Tableaux** pour les références rapides (fonctionnalités, menu, configurations)
+4. **Blocs de code** avec syntaxe highlighting
+5. **Emojis** conservés pour la lisibilité visuelle
+6. **Alertes** (`> ⚠️`) pour les avertissements importants
+7. **Checkboxes** pour les listes de vérification
+8. **Structure arborescente** avec des diagrammes ASCII
+
+Tu peux copier-coller directement ce contenu dans ton fichier `README.md` sur GitHub !
