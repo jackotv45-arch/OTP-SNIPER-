@@ -1,21 +1,8 @@
-# ============================================
-# OTP-SNIPER v1.1
-# ============================================
-
-# Interface TUI
+# OTP-SNIPER v2.0
 rich>=13.7.0
-
-# HTTP client (proxy + replay)
 requests>=2.31.0
-
-# Interface Web (optionnel)
 flask>=3.0.0
-
-# HTTPS MITM (génération de certificats)
 cryptography>=42.0.0
-
-# ============================================
-# NOTE : sqlite3, http.server, ssl, socket,
-#        threading, json, re, hashlib sont dans
-#        la stdlib Python
-# ============================================
+websocket-client>=1.6.0
+hyper>=0.7.0
+h2>=4.1.0
