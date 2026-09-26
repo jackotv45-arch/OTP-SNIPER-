@@ -1,4 +1,3 @@
-📖 3. README.md
 # 🔫 OTP-SNIPER v1.1
 
 **Capture et analyse de codes 2FA avec HTTPS MITM et Replay automatique.**
